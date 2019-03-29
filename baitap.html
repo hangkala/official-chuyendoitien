@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>chuyen doi tien te</title>
+</head>
+<body>
+<form>
+    Amount:<br>
+    <input type="number" id="amount"><br>
+</form><br>
+<form>
+    From Currency
+    <select id="fromC">
+        <option>VND</option>
+        <option>USD</option>
+        <option>YEN</option>
+    </select>
+</form><br>
+<form>
+    To Currency
+    <select id="toC">
+        <option>VND</option>
+        <option>USD</option>
+        <option>YEN</option>
+    </select>
+</form>
+<script>
+    function chuyentien() {
+        let money = parseInt(document.getElementById("amount").value);
+        let a = document.getElementById("fromC").value;
+        let b = document.getElementById("toC").value;
+        let kq = 0;
+        if (a == "VND") {
+            if (b == "USD") {
+                kq = money / 23000;
+                alert('Số đô la mà bạn có là ' + kq);
+            } else if (b == "YEN")
+            { kq = money/210;
+                alert('So Yen Nhat ma ban co la '+kq);
+            }
+            else {alert('Vui long chon lai 1');}
+        } else if (a == "USD") {
+            if (b == "VND") {
+                kq = money * 23000;
+                alert('Số việt nam đồng mà bạn có là ' + kq);
+            } else if (b == "YEN") {
+                kq = money*111;
+                alert('So YEN nhat ma ban co la '+kq);}
+            else {
+                alert('Chọn lại di ban oi');
+            }
+        }  else if (a == "YEN") {
+            if (b == "VND") {
+                kq = money*210;
+                alert('Số việt nam đồng mà bạn có là ' + kq);
+            } else if (b == "USD") {
+                kq = money/111;
+                alert('So do la ma ban co la '+kq);}
+            else {
+                alert('Chọn lại di ban oi');
+            }
+        }
+    }
+</script>
+<input type="button" onclick="chuyentien()" value="Convert">
+</body>
+</html>
